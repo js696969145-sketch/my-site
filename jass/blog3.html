@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Flexbox - JASS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog-post.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">JASS</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-container">
+        <div class="container">
+            <div class="blog-post-header">
+                <h1>Mastering CSS Flexbox</h1>
+                <p class="post-meta">Published on <strong>February 5, 2026</strong> | By <strong>JASS Team</strong></p>
+            </div>
+
+            <div class="blog-post-content">
+                <p>CSS Flexbox is a powerful layout tool that makes creating responsive and flexible layouts incredibly easy. In this comprehensive guide, we'll explore all the properties and techniques you need to master Flexbox.</p>
+
+                <h2>What is Flexbox?</h2>
+                <p>Flexbox (Flexible Box Layout) is a CSS layout mode that makes it easier to design flexible responsive layout structure. It provides a more efficient way to arrange, distribute, and align items within a container, even when their size is unknown or dynamic.</p>
+
+                <h2>The Basics: Container and Items</h2>
+                <p>Flexbox works with two main concepts:</p>
+                <ul>
+                    <li><strong>Flex Container:</strong> The parent element with <code>display: flex</code></li>
+                    <li><strong>Flex Items:</strong> The children of the flex container</li>
+                </ul>
+
+                <h2>Container Properties</h2>
+
+                <h3>1. Display Property</h3>
+                <pre><code>.container {
+    display: flex; /* or inline-flex */
+}</code></pre>
+
+                <h3>2. Flex Direction</h3>
+                <p>Controls the direction of flex items:</p>
+                <pre><code>.container {
+    flex-direction: row; /* default */
+    /* Other values: row-reverse, column, column-reverse */
+}</code></pre>
+
+                <h3>3. Justify Content</h3>
+                <p>Aligns flex items along the main axis:</p>
+                <pre><code>.container {
+    justify-content: flex-start; /* default */
+    /* Other values: flex-end, center, space-between, space-around, space-evenly */
+}</code></pre>
+
+                <h3>4. Align Items</h3>
+                <p>Aligns flex items along the cross axis:</p>
+                <pre><code>.container {
+    align-items: stretch; /* default */
+    /* Other values: flex-start, flex-end, center, baseline */
+}</code></pre>
+
+                <h3>5. Flex Wrap</h3>
+                <p>Determines whether items wrap to the next line:</p>
+                <pre><code>.container {
+    flex-wrap: wrap; /* Items wrap if needed */
+    /* Other values: nowrap, wrap-reverse */
+}</code></pre>
+
+                <h3>6. Gap</h3>
+                <p>Sets spacing between flex items:</p>
+                <pre><code>.container {
+    gap: 20px; /* Uniform gap */
+    /* or */
+    gap: 20px 10px; /* row-gap column-gap */
+}</code></pre>
+
+                <h2>Item Properties</h2>
+
+                <h3>1. Flex Grow</h3>
+                <p>Determines how much a flex item will grow relative to other items:</p>
+                <pre><code>.item {
+    flex-grow: 1; /* Growth factor */
+}</code></pre>
+
+                <h3>2. Flex Shrink</h3>
+                <p>Determines how much a flex item will shrink:</p>
+                <pre><code>.item {
+    flex-shrink: 1; /* Shrink factor (default) */
+}</code></pre>
+
+                <h3>3. Flex Basis</h3>
+                <p>Sets the default size of a flex item:</p>
+                <pre><code>.item {
+    flex-basis: 200px;
+}</code></pre>
+
+                <h3>4. Flex Shorthand</h3>
+                <p>Combines flex-grow, flex-shrink, and flex-basis:</p>
+                <pre><code>.item {
+    flex: 1 1 200px; /* grow shrink basis */
+}</code></pre>
+
+                <h3>5. Align Self</h3>
+                <p>Overrides the align-items property for individual items:</p>
+                <pre><code>.item {
+    align-self: flex-end;
+}</code></pre>
+
+                <h2>Real-World Examples</h2>
+
+                <h3>Example 1: Simple Navigation Bar</h3>
+                <pre><code>nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #333;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+}</code></pre>
+
+                <h3>Example 2: Card Layout</h3>
+                <pre><code>.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.card {
+    flex: 1 1 300px;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+}</code></pre>
+
+                <h3>Example 3: Centering</h3>
+                <pre><code>.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}</code></pre>
+
+                <h2>Browser Support</h2>
+                <p>Flexbox is supported in all modern browsers. For older browsers (IE10 and below), you may need to use prefixes like <code>-webkit-</code>, though this is becoming less relevant.</p>
+
+                <h2>Tips and Tricks</h2>
+                <ul>
+                    <li>Use <code>flex-wrap: wrap</code> for responsive layouts</li>
+                    <li>Combine with media queries for mobile-first design</li>
+                    <li>Remember that flexbox is one-dimensional (rows OR columns)</li>
+                    <li>Use CSS Grid for two-dimensional layouts</li>
+                    <li>The <code>gap</code> property is cleaner than margins</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Flexbox is an essential tool for modern web development. Once you understand the container and item properties, you'll be able to create flexible, responsive layouts with ease. Practice these concepts with real projects and you'll master flexbox in no time!</p>
+
+                <div class="blog-navigation">
+                    <a href="index.html#blog" class="back-link">← Back to Blog</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 JASS Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
